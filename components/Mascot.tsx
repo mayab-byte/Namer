@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { asset } from "@/lib/site";
 
 /**
  * Brand leopard mascot. Currently uses a placeholder SVG — drop the real
@@ -16,7 +17,7 @@ export function Mascot({
 }) {
   return (
     <Image
-      src="/mascot/leopard.svg"
+      src={asset("/mascot/leopard.svg")}
       alt="נמר סושיאל"
       width={size}
       height={Math.round((size * 200) / 240)}

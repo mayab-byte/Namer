@@ -5,7 +5,7 @@ import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { JsonLd } from "@/components/JsonLd";
 import { organizationSchema, websiteSchema } from "@/lib/schema";
-import { site, siteUrl } from "@/lib/site";
+import { site, siteUrl, asset } from "@/lib/site";
 
 const heebo = Heebo({
   variable: "--font-heebo",
@@ -47,21 +47,21 @@ export const metadata: Metadata = {
     siteName: site.name,
     title: `${site.name} — סוכנות סושיאל, וידאו וקידום`,
     description: site.description,
-    images: [{ url: "/og.png", width: 1200, height: 630, alt: site.name }],
+    images: [{ url: `${siteUrl}/og.png`, width: 1200, height: 630, alt: site.name }],
   },
   twitter: {
     card: "summary_large_image",
     title: `${site.name} — סוכנות סושיאל, וידאו וקידום`,
     description: site.description,
-    images: ["/og.png"],
+    images: [`${siteUrl}/og.png`],
   },
   robots: {
     index: true,
     follow: true,
     googleBot: { index: true, follow: true, "max-image-preview": "large", "max-snippet": -1 },
   },
-  icons: { icon: "/favicon.svg", apple: "/favicon.svg" },
-  manifest: "/manifest.webmanifest",
+  icons: { icon: asset("/favicon.svg"), apple: asset("/favicon.svg") },
+  manifest: asset("/manifest.webmanifest"),
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

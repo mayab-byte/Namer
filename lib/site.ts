@@ -7,9 +7,22 @@
  * feed the Organization JSON-LD (GSO commandments #4 and #9: NAP consistency).
  */
 
+/**
+ * Base path the site is served under. Empty in local dev; set to "/Namer" by
+ * the GitHub Pages workflow (the site lives at github.io/<repo>).
+ */
+export const basePath = (process.env.NEXT_PUBLIC_BASE_PATH || "").replace(/\/$/, "");
+
+/**
+ * Absolute site URL (origin + basePath). Used for canonical links, sitemap,
+ * robots and JSON-LD. Override via NEXT_PUBLIC_SITE_URL for the real domain.
+ */
 export const siteUrl = (
-  process.env.NEXT_PUBLIC_SITE_URL || "https://www.namersocial.co.il"
+  process.env.NEXT_PUBLIC_SITE_URL || "https://mayab-byte.github.io/Namer"
 ).replace(/\/$/, "");
+
+/** Prefix a public asset path with the basePath (for metadata/manifest icons). */
+export const asset = (path: string) => `${basePath}${path.startsWith("/") ? "" : "/"}${path}`;
 
 export const site = {
   name: "Namer Social",

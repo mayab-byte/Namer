@@ -10,6 +10,7 @@ import { Mascot } from "@/components/Mascot";
 import { JsonLd } from "@/components/JsonLd";
 import { services, works, homeFaqs, methodology } from "@/lib/content";
 import { faqSchema } from "@/lib/schema";
+import { asset } from "@/lib/site";
 
 export default function HomePage() {
   return (
@@ -155,7 +156,7 @@ export default function HomePage() {
           </div>
           <form
             className="flex w-full flex-col gap-3 sm:flex-row"
-            action="/contact"
+            action={asset("/contact/")}
             aria-label="הרשמה לניוזלטר"
           >
             <label htmlFor="nl-email" className="sr-only">

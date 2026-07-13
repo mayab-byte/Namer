@@ -1,6 +1,9 @@
 import type { MetadataRoute } from "next";
 import { siteUrl } from "@/lib/site";
 
+// Required for `output: export` (static generation).
+export const dynamic = "force-static";
+
 /**
  * robots.txt (GSO commandment #3 — open the door to generative bots).
  * Explicitly welcomes the major AI crawlers alongside classic search engines.
