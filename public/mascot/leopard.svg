@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 200" role="img" aria-label="נמר סושיאל — מאסקוט">
+  <!-- PLACEHOLDER mascot. Replace with the brand's real leopard artwork (transparent PNG/SVG). -->
+  <g fill="none" stroke="#000" stroke-width="6" stroke-linejoin="round">
+    <!-- ears -->
+    <path d="M64 66 C52 34 30 30 34 58 C36 74 52 78 64 72 Z" fill="#ff20bf"/>
+    <path d="M176 66 C188 34 210 30 206 58 C204 74 188 78 176 72 Z" fill="#ff20bf"/>
+    <!-- head -->
+    <path d="M120 40 C176 40 202 82 202 118 C202 160 168 182 120 182 C72 182 38 160 38 118 C38 82 64 40 120 40 Z" fill="#ff20bf"/>
+    <!-- muzzle -->
+    <path d="M120 118 C150 118 170 134 170 152 C170 170 148 178 120 178 C92 178 70 170 70 152 C70 134 90 118 120 118 Z" fill="#fff"/>
+  </g>
+  <!-- sunglasses -->
+  <g fill="#000">
+    <rect x="56" y="92" width="56" height="26" rx="8"/>
+    <rect x="128" y="92" width="56" height="26" rx="8"/>
+    <rect x="108" y="99" width="24" height="8"/>
+  </g>
+  <!-- nose + smile -->
+  <path d="M110 138 h20 l-10 10 Z" fill="#000"/>
+  <path d="M120 148 C112 160 96 160 90 150" fill="none" stroke="#000" stroke-width="5" stroke-linecap="round"/>
+  <path d="M120 148 C128 160 144 160 150 150" fill="none" stroke="#000" stroke-width="5" stroke-linecap="round"/>
+  <!-- spots -->
+  <g fill="#000">
+    <circle cx="70" cy="70" r="6"/><circle cx="96" cy="58" r="5"/>
+    <circle cx="150" cy="58" r="5"/><circle cx="176" cy="72" r="6"/>
+    <circle cx="60" cy="122" r="6"/><circle cx="184" cy="122" r="6"/>
+    <circle cx="120" cy="70" r="5"/>
+  </g>
+</svg>

@@ -1,0 +1,120 @@
+@import "tailwindcss";
+
+/* ------------------------------------------------------------------ */
+/* Brand design tokens — Namer Social                                   */
+/* Palette: Noir / Stark / Neon Pink / Lime  (from the brand book)     */
+/* ------------------------------------------------------------------ */
+@theme {
+  --color-ink: #000000;
+  --color-paper: #ffffff;
+  --color-pink: #ff20bf;
+  --color-pink-deep: #84043d;
+  --color-lime: #ccff00;
+
+  --color-gray-50: #f6f6f7;
+  --color-gray-100: #ececee;
+  --color-gray-200: #d8d9dd;
+  --color-gray-400: #9a9ba3;
+  --color-gray-500: #6e6f78;
+  --color-gray-700: #333338;
+  --color-gray-900: #121215;
+
+  --font-sans: var(--font-heebo), ui-sans-serif, system-ui, sans-serif;
+  --font-serif: var(--font-bodoni), Georgia, "Times New Roman", serif;
+
+  --radius-brand: 0.75rem;
+}
+
+/* ------------------------------------------------------------------ */
+/* Base                                                                 */
+/* ------------------------------------------------------------------ */
+:root {
+  color-scheme: light;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--color-paper);
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+::selection {
+  background: var(--color-pink);
+  color: var(--color-paper);
+}
+
+/* Latin display words (kickers like "STRATEGIC SOCIAL AGENCY") */
+.font-serif {
+  font-family: var(--font-serif);
+}
+
+/* ------------------------------------------------------------------ */
+/* Reusable utilities                                                   */
+/* ------------------------------------------------------------------ */
+@layer components {
+  .container-x {
+    @apply mx-auto w-full max-w-7xl px-5 sm:px-8;
+  }
+
+  .kicker {
+    @apply inline-flex items-center gap-2 text-xs font-bold uppercase tracking-[0.2em] text-pink;
+  }
+
+  /* Shared button base — listed together so variants don't @apply each other
+     (Tailwind v4 only lets @apply reference real utilities, not components). */
+  .btn,
+  .btn-pink,
+  .btn-dark,
+  .btn-lime,
+  .btn-ghost {
+    @apply inline-flex items-center justify-center gap-2 rounded-full px-7 py-3.5 text-base font-bold
+           transition-transform duration-200 will-change-transform hover:-translate-y-0.5 focus-visible:outline-none
+           focus-visible:ring-2 focus-visible:ring-pink focus-visible:ring-offset-2;
+  }
+  .btn-pink {
+    @apply bg-pink text-paper hover:bg-pink-deep;
+  }
+  .btn-dark {
+    @apply bg-ink text-paper hover:bg-gray-900;
+  }
+  .btn-lime {
+    @apply bg-lime text-ink hover:brightness-95;
+  }
+  .btn-ghost {
+    @apply border border-ink/15 bg-transparent text-ink hover:border-ink/40;
+  }
+
+  /* Big editorial headline */
+  .display {
+    @apply font-extrabold leading-[0.95] tracking-tight;
+  }
+}
+
+/* Marquee animation for the scrolling wordmark band */
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    /* RTL: content duplicated, shift by half */
+    transform: translateX(50%);
+  }
+}
+.animate-marquee {
+  animation: marquee 30s linear infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  .animate-marquee {
+    animation: none;
+  }
+}
