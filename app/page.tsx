@@ -185,7 +185,12 @@ export default function HomePage() {
         </div>
       </Section>
 
-      <CtaBand />
+      {/* Reclining leopard divider (brand moment above the CTA) */}
+      <div className="flex justify-center overflow-hidden bg-paper pt-10">
+        <Mascot variant="call" size={420} className="-mb-1" />
+      </div>
+
+      <CtaBand showMascot={false} />
     </>
   );
 }

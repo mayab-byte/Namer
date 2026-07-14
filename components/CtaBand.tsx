@@ -8,6 +8,7 @@ export function CtaBand({
   primaryLabel = "בואו נדבר",
   secondaryHref = "/works",
   secondaryLabel = "צפו בעבודות",
+  showMascot = true,
 }: {
   title?: string;
   text?: string;
@@ -15,6 +16,7 @@ export function CtaBand({
   primaryLabel?: string;
   secondaryHref?: string;
   secondaryLabel?: string;
+  showMascot?: boolean;
 }) {
   return (
     <section className="bg-ink text-paper">
@@ -34,7 +36,7 @@ export function CtaBand({
             </Link>
           </div>
         </div>
-        <Mascot size={200} className="hidden shrink-0 md:block" />
+        {showMascot && <Mascot size={220} className="hidden shrink-0 md:block" />}
       </div>
     </section>
   );

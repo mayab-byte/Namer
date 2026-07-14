@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { PageHero } from "@/components/PageHero";
 import { Section } from "@/components/Section";
+import { Mascot } from "@/components/Mascot";
 import { Faq } from "@/components/Faq";
 import { CtaBand } from "@/components/CtaBand";
 import { JsonLd } from "@/components/JsonLd";
@@ -86,6 +87,9 @@ export default function PackagesPage() {
         <p className="mt-8 text-sm text-gray-400">
           * חבילות מותאמות אישית. הצעת מחיר סופית נבנית אחרי פגישת אפיון.
         </p>
+        <div className="mt-10 flex justify-center">
+          <Mascot variant="peek" size={320} />
+        </div>
       </Section>
 
       <Section className="bg-gray-50">

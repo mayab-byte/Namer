@@ -2,27 +2,35 @@ import Image from "next/image";
 import { asset } from "@/lib/site";
 
 /**
- * Brand leopard mascot. Currently uses a placeholder SVG — drop the real
- * transparent artwork at /public/mascot/leopard.svg (or .png and update src)
- * to swap it everywhere.
+ * Brand leopard mascot (the sunglasses head). Swap `variant` to use the
+ * peeking cub or the reclining "call" divider illustration.
  */
+const SOURCES = {
+  head: "/mascot/mascot.png",
+  peek: "/mascot/peek.png",
+  call: "/mascot/call-divider.png",
+} as const;
+
 export function Mascot({
   size = 120,
+  variant = "head",
   className = "",
   priority = false,
 }: {
   size?: number;
+  variant?: keyof typeof SOURCES;
   className?: string;
   priority?: boolean;
 }) {
   return (
     <Image
-      src={asset("/mascot/leopard.svg")}
+      src={asset(SOURCES[variant])}
       alt="נמר סושיאל"
       width={size}
-      height={Math.round((size * 200) / 240)}
-      className={className}
+      height={size}
       priority={priority}
+      className={`h-auto w-auto object-contain ${className}`}
+      style={{ maxWidth: size }}
     />
   );
 }
