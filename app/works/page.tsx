@@ -31,14 +31,11 @@ export default function WorksPage() {
       />
 
       <Section>
-        <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
           {works.map((w) => (
             <WorkCard key={w.slug} work={w} />
           ))}
         </div>
-        <p className="mt-10 text-sm text-gray-400">
-          * המספרים להמחשה. מקרי לקוח מפורטים יתווספו בקרוב.
-        </p>
       </Section>
 
       <CtaBand title="רוצים להיות הפרויקט הבא?" text="ספרו לנו על העסק שלכם ונבנה יחד נוכחות שאי אפשר להתעלם ממנה." />

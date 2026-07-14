@@ -297,12 +297,47 @@ export type Work = {
   category: string;
   result: string;
   accent: "pink" | "lime" | "dark";
+  image?: string;
+  handle?: string;
 };
 
 export const works: Work[] = [
-  { slug: "brand-a", title: "מותג אופנה יוקרתי", category: "ניהול סושיאל · וידאו", result: "צמיחה של 340% במעורבות תוך 6 חודשים", accent: "pink" },
-  { slug: "brand-b", title: "סטארטאפ B2B", category: "אסטרטגיה · GSO", result: "נוכחות בתשובות AI ל-500 פרומפטים איכותיים", accent: "dark" },
-  { slug: "brand-c", title: "רשת מסעדות", category: "וידאו · קמפיינים", result: "מעל 5M צפיות אורגניות בסרטוני שטח", accent: "lime" },
+  {
+    slug: "yoana",
+    title: "Yoana Boyev · NorthPoint",
+    category: "מיתוג אישי · לייף-סטייל",
+    result: "קהילה של מעל 19K עוקבים סביב מיתוג אישי לעו\"ד ורו\"ח",
+    handle: "yoanab",
+    image: "/works/yoana.webp",
+    accent: "pink",
+  },
+  {
+    slug: "ofek",
+    title: "אופק משפחתי",
+    category: "פיננסים · ניהול סושיאל",
+    result: "נוכחות עקבית ותוכן לייף-סטייל פיננסי שמדבר בגובה העיניים",
+    handle: "ofekmishpahti1",
+    image: "/works/ofek.webp",
+    accent: "lime",
+  },
+  {
+    slug: "poria",
+    title: "פוריה פיננסים",
+    category: "ייעוץ פיננסי · תוכן",
+    result: "בניית סמכות מקצועית ותוכן מסביר למתכנן פיננסי",
+    handle: "poria__finance",
+    image: "/works/poria.webp",
+    accent: "dark",
+  },
+  {
+    slug: "bmf360",
+    title: "BMF360",
+    category: "מיתוג · צמיחה",
+    result: "תוכן צמיחה ומיתוג לסוכנות פרסום בדיגיטל",
+    handle: "bmf360_growth",
+    image: "/works/bmf360.webp",
+    accent: "pink",
+  },
 ];
 
 /* ------------------------------------------------------------------ */
