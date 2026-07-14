@@ -1,29 +1,50 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 200" role="img" aria-label="נמר סושיאל — מאסקוט">
-  <!-- PLACEHOLDER mascot. Replace with the brand's real leopard artwork (transparent PNG/SVG). -->
-  <g fill="none" stroke="#000" stroke-width="6" stroke-linejoin="round">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 260 240" role="img" aria-label="נמר סושיאל — מאסקוט">
+  <!-- Namer Social leopard mascot (vector recreation). Pink body, black rosettes,
+       sunglasses, white muzzle with a toothy grin and a signature curled tail. -->
+  <g stroke="#000" stroke-width="7" stroke-linejoin="round" stroke-linecap="round">
+    <!-- curled tail / left flourish (the signature "2" curl) -->
+    <path d="M60 150 C20 150 18 96 46 92 C70 89 66 126 50 126 C40 126 42 110 52 112"
+          fill="#ff20bf"/>
+    <!-- lower front leg / paw -->
+    <path d="M96 176 C86 210 120 224 132 200 C140 184 128 168 112 168 Z" fill="#ff20bf"/>
     <!-- ears -->
-    <path d="M64 66 C52 34 30 30 34 58 C36 74 52 78 64 72 Z" fill="#ff20bf"/>
-    <path d="M176 66 C188 34 210 30 206 58 C204 74 188 78 176 72 Z" fill="#ff20bf"/>
+    <path d="M92 62 C84 30 60 26 62 54 C63 70 80 74 96 66 Z" fill="#ff20bf"/>
+    <path d="M170 60 C182 30 206 30 200 58 C196 74 178 74 166 64 Z" fill="#ff20bf"/>
     <!-- head -->
-    <path d="M120 40 C176 40 202 82 202 118 C202 160 168 182 120 182 C72 182 38 160 38 118 C38 82 64 40 120 40 Z" fill="#ff20bf"/>
-    <!-- muzzle -->
-    <path d="M120 118 C150 118 170 134 170 152 C170 170 148 178 120 178 C92 178 70 170 70 152 C70 134 90 118 120 118 Z" fill="#fff"/>
+    <path d="M128 44 C182 40 214 78 214 118 C214 166 176 192 128 190
+             C86 188 60 158 62 118 C64 80 92 47 128 44 Z" fill="#ff20bf"/>
+    <!-- muzzle / snout (white), pointing right -->
+    <path d="M150 120 C196 116 224 132 224 150 C224 170 198 180 168 178
+             C150 177 138 168 138 150 C138 133 142 121 150 120 Z" fill="#fff"/>
   </g>
+
   <!-- sunglasses -->
   <g fill="#000">
-    <rect x="56" y="92" width="56" height="26" rx="8"/>
-    <rect x="128" y="92" width="56" height="26" rx="8"/>
-    <rect x="108" y="99" width="24" height="8"/>
+    <path d="M78 96 L138 92 C142 92 144 96 142 100 L134 118 C132 122 128 124 124 124
+             L96 124 C90 124 86 120 84 114 L76 102 C74 98 75 96 78 96 Z"/>
+    <path d="M148 92 L206 90 C210 90 212 94 210 98 L202 116 C200 120 196 122 192 122
+             L166 122 C160 122 156 118 154 112 L146 98 C144 94 145 92 148 92 Z"/>
+    <rect x="138" y="92" width="12" height="7" rx="3"/>
+    <!-- shine on lenses -->
+    <path d="M92 102 l16 -1 -9 14 -10 0 z" fill="#fff" opacity="0.85"/>
+    <path d="M162 100 l16 -1 -9 14 -10 0 z" fill="#fff" opacity="0.85"/>
   </g>
-  <!-- nose + smile -->
-  <path d="M110 138 h20 l-10 10 Z" fill="#000"/>
-  <path d="M120 148 C112 160 96 160 90 150" fill="none" stroke="#000" stroke-width="5" stroke-linecap="round"/>
-  <path d="M120 148 C128 160 144 160 150 150" fill="none" stroke="#000" stroke-width="5" stroke-linecap="round"/>
-  <!-- spots -->
+
+  <!-- grin: mouth line, fang, nose -->
+  <path d="M150 150 C168 168 196 166 210 152" fill="none" stroke="#000" stroke-width="6" stroke-linecap="round"/>
+  <path d="M172 160 l7 12 7 -12 z" fill="#fff" stroke="#000" stroke-width="3"/>
+  <path d="M150 132 c8 -4 16 -2 18 4 c-6 4 -14 4 -18 -4 z" fill="#000"/>
+
+  <!-- rosettes / spots -->
   <g fill="#000">
-    <circle cx="70" cy="70" r="6"/><circle cx="96" cy="58" r="5"/>
-    <circle cx="150" cy="58" r="5"/><circle cx="176" cy="72" r="6"/>
-    <circle cx="60" cy="122" r="6"/><circle cx="184" cy="122" r="6"/>
-    <circle cx="120" cy="70" r="5"/>
+    <path d="M100 74 a7 6 0 1 0 0.1 0 z"/>
+    <path d="M124 66 a6 5 0 1 0 0.1 0 z"/>
+    <path d="M150 72 a6 5 0 1 0 0.1 0 z"/>
+    <path d="M188 92 a7 6 0 1 0 0.1 0 z"/>
+    <path d="M78 128 a7 6 0 1 0 0.1 0 z"/>
+    <path d="M98 152 a8 6 0 1 0 0.1 0 z"/>
+    <path d="M124 168 a7 6 0 1 0 0.1 0 z"/>
+    <path d="M40 108 a6 5 0 1 0 0.1 0 z"/>
+    <path d="M110 196 a6 5 0 1 0 0.1 0 z"/>
   </g>
 </svg>
