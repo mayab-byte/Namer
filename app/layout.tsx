@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Heebo, Bodoni_Moda } from "next/font/google";
+import { Heebo, Bodoni_Moda, Rubik } from "next/font/google";
 import "./globals.css";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
@@ -7,9 +7,17 @@ import { JsonLd } from "@/components/JsonLd";
 import { organizationSchema, websiteSchema } from "@/lib/schema";
 import { site, siteUrl, asset } from "@/lib/site";
 
+// Rubik covers Hebrew (loaded with the Hebrew subset only, so Latin characters
+// fall through to Heebo — keeping English exactly as it was).
+const rubik = Rubik({
+  variable: "--font-rubik",
+  subsets: ["hebrew"],
+  display: "swap",
+});
+
 const heebo = Heebo({
   variable: "--font-heebo",
-  subsets: ["hebrew", "latin"],
+  subsets: ["latin"],
   display: "swap",
 });
 
@@ -66,7 +74,7 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="he" dir="rtl" className={`${heebo.variable} ${bodoni.variable} h-full`}>
+    <html lang="he" dir="rtl" className={`${rubik.variable} ${heebo.variable} ${bodoni.variable} h-full`}>
       <body className="flex min-h-full flex-col">
         <JsonLd data={[organizationSchema(), websiteSchema()]} />
         <a

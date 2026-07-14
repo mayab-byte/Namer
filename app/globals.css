@@ -19,8 +19,10 @@
   --color-gray-700: #333338;
   --color-gray-900: #121215;
 
-  --font-sans: var(--font-heebo), ui-sans-serif, system-ui, sans-serif;
-  --font-serif: var(--font-bodoni), Georgia, "Times New Roman", serif;
+  /* Hebrew renders in Rubik; Latin falls through to Heebo (English unchanged). */
+  --font-sans: var(--font-rubik), var(--font-heebo), ui-sans-serif, system-ui, sans-serif;
+  /* Serif kickers: Latin in Bodoni Moda, any Hebrew falls through to Rubik. */
+  --font-serif: var(--font-bodoni), var(--font-rubik), Georgia, "Times New Roman", serif;
 
   --radius-brand: 0.75rem;
 }
