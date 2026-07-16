@@ -1,28 +1,25 @@
 "use client";
 
 import Link from "next/link";
-import { useRef, useState } from "react";
+import { useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useReducedMotion } from "@/lib/useReducedMotion";
-import { asset } from "@/lib/site";
 
 /**
- * Cinematic hero: the tiger video is the premium hero asset (master spec —
- * "the tiger is the hero of the experience"). Independent depth layers
- * (video / fog / content) parallax at different rates as the camera moves
- * past the scene, instead of a plain fade transition.
+ * Cinematic hero: independent depth layers (background / fog / content)
+ * parallax at different rates as the camera moves past the scene, instead
+ * of a plain fade transition.
  */
 export function CinematicHero() {
   const sectionRef = useRef<HTMLDivElement>(null);
   const reduced = useReducedMotion();
-  const [videoReady, setVideoReady] = useState(false);
 
   const { scrollYProgress } = useScroll({
     target: sectionRef,
     offset: ["start start", "end start"],
   });
 
-  const videoScale = useTransform(scrollYProgress, [0, 1], reduced ? [1, 1] : [1, 1.18]);
+  const bgScale = useTransform(scrollYProgress, [0, 1], reduced ? [1, 1] : [1, 1.18]);
   const contentY = useTransform(scrollYProgress, [0, 1], reduced ? [0, 0] : [0, -80]);
   const contentOpacity = useTransform(scrollYProgress, [0, 1], reduced ? [1, 1] : [1, 0.2]);
 
@@ -31,22 +28,11 @@ export function CinematicHero() {
       ref={sectionRef}
       className="relative flex h-[100svh] min-h-[560px] flex-col overflow-hidden bg-ink text-paper"
     >
-      {/* Depth layer 1: background video (the tiger) */}
-      <motion.div className="absolute inset-0" style={{ scale: videoScale }}>
+      {/* Depth layer 1: background */}
+      <motion.div className="absolute inset-0" style={{ scale: bgScale }}>
         <div
-          className={`absolute inset-0 bg-gradient-to-br from-pink-deep via-ink to-ink transition-opacity duration-700 ${videoReady ? "opacity-0" : "opacity-100"}`}
+          className="absolute inset-0 bg-gradient-to-br from-pink-deep via-ink to-ink"
           aria-hidden="true"
-        />
-        <video
-          className={`h-full w-full object-cover transition-opacity duration-700 ${videoReady ? "opacity-100" : "opacity-0"}`}
-          src={asset("/video/tiger-1.mp4")}
-          autoPlay
-          muted
-          loop
-          playsInline
-          preload="auto"
-          aria-hidden="true"
-          onCanPlay={() => setVideoReady(true)}
         />
       </motion.div>
 

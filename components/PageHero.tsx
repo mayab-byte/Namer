@@ -30,6 +30,7 @@ export function PageHero({
   children,
   variant = "cream",
   mascot,
+  sideMedia,
 }: {
   kicker?: string;
   title: string;
@@ -38,6 +39,9 @@ export function PageHero({
   children?: ReactNode;
   variant?: Variant;
   mascot?: MascotPose;
+  /** Small standalone character clip placed beside the answer paragraph
+   * (e.g. <TigerAnim />) — an alternative to the large corner `mascot`. */
+  sideMedia?: ReactNode;
 }) {
   const s = styles[variant];
   return (
@@ -66,7 +70,12 @@ export function PageHero({
         <Breadcrumbs items={crumbs} dark={s.dark} />
         {kicker && <p className={`kicker font-serif mt-6 ${s.kicker}`}>{kicker}</p>}
         <h1 className={`display mt-3 max-w-3xl text-4xl sm:text-6xl ${s.title}`}>{title}</h1>
-        {answer && <p className={`mt-6 max-w-2xl text-lg leading-relaxed ${s.answer}`}>{answer}</p>}
+        {answer && (
+          <div className="mt-6 flex flex-col items-start gap-6 sm:flex-row sm:items-center">
+            <p className={`max-w-2xl text-lg leading-relaxed ${s.answer}`}>{answer}</p>
+            {sideMedia && <div className="shrink-0">{sideMedia}</div>}
+          </div>
+        )}
         {children && <div className="mt-8">{children}</div>}
       </div>
     </header>

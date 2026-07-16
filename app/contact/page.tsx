@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { PageHero } from "@/components/PageHero";
 import { Section } from "@/components/Section";
 import { ContactForm } from "@/components/ContactForm";
+import { TigerAnim } from "@/components/TigerAnim";
 import { JsonLd } from "@/components/JsonLd";
 import { site } from "@/lib/site";
 import { breadcrumbSchema } from "@/lib/schema";
@@ -28,7 +29,7 @@ export default function ContactPage() {
         answer="מוכנים להפוך לטורפים בעולם הדיגיטלי? השאירו פרטים ונחזור אליכם, או דברו איתנו ישירות."
         crumbs={crumbs}
         variant="dark"
-        mascot="call"
+        sideMedia={<TigerAnim size={140} />}
       />
 
       <Section>
