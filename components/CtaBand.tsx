@@ -4,7 +4,7 @@ import { asset } from "@/lib/site";
 
 export function CtaBand({
   title = "בואו נצוד.",
-  text = "מוכנים להפוך לטורפים בעולם הדיגיטלי? בואו נבנה יחד נוכחות שאי אפשר להתעלם ממנה.",
+  text = "מוכנים להפוך לטורפים בעולם הדיגיטלי?\nבואו נבנה יחד נוכחות שאי אפשר להתעלם ממנה.",
   primaryHref = "/contact",
   primaryLabel = "בואו נדבר",
   secondaryHref = "/works",
@@ -39,7 +39,7 @@ export function CtaBand({
             {title.replace(/\.$/, "")}
             <span className="text-pink">.</span>
           </h2>
-          <p className="mt-5 text-lg leading-relaxed text-gray-200">{text}</p>
+          <p className="mt-5 whitespace-pre-line text-lg leading-relaxed text-gray-200">{text}</p>
           <div className="mt-8 flex flex-wrap gap-3">
             <Link href={primaryHref} className="btn-pink">
               {primaryLabel}

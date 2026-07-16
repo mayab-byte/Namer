@@ -83,7 +83,7 @@ export default function AboutPage() {
 
       <Section>
         <div className="rounded-brand bg-gray-50 p-8 sm:p-12">
-          <Stats />
+          <Stats cols={4} />
         </div>
       </Section>
 

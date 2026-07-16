@@ -1,7 +1,7 @@
 import Link from "next/link";
-import { site, nav } from "@/lib/site";
+import Image from "next/image";
+import { site, nav, asset } from "@/lib/site";
 import { services } from "@/lib/content";
-import { Logo } from "./Logo";
 
 const socialLinks: { href: string; label: string }[] = [
   { href: site.socials.instagram, label: "Instagram" },
@@ -16,8 +16,18 @@ export function Footer() {
     <footer className="mt-24 bg-ink text-paper">
       <div className="container-x grid gap-12 py-16 md:grid-cols-4">
         <div className="md:col-span-1">
-          <Logo variant="dark" />
-          <p className="mt-4 max-w-xs text-sm leading-relaxed text-gray-400">
+          <Link href="/" aria-label="נמר סושיאל — לעמוד הבית" className="inline-block">
+            <span className="inline-flex rounded-2xl bg-paper p-4 shadow-sm">
+              <Image
+                src={asset("/brand/logo-vertical.png")}
+                alt="Namer Social"
+                width={140}
+                height={140}
+                className="h-auto w-32"
+              />
+            </span>
+          </Link>
+          <p className="mt-5 max-w-xs text-sm leading-relaxed text-gray-400">
             {site.description}
           </p>
         </div>
