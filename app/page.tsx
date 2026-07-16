@@ -1,6 +1,10 @@
 import Link from "next/link";
 import { Section, SectionHeading } from "@/components/Section";
 import { HeroMarquee } from "@/components/HeroMarquee";
+import { CinematicHero } from "@/components/CinematicHero";
+import { StorySection } from "@/components/StorySection";
+import { TrustSection } from "@/components/TrustSection";
+import { DepthReveal } from "@/components/DepthReveal";
 import { ServiceCard } from "@/components/ServiceCard";
 import { WorkCard } from "@/components/WorkCard";
 import { Stats } from "@/components/Stats";
@@ -18,86 +22,58 @@ export default function HomePage() {
       <JsonLd data={faqSchema(homeFaqs)} />
 
       {/* ---------------------------------------------------------- Hero */}
-      <section className="relative overflow-hidden">
-        <div className="container-x grid items-center gap-12 py-16 sm:py-24 lg:grid-cols-12">
-          <div className="lg:col-span-7">
-            <p className="kicker font-serif">Strategic Social Agency</p>
-            <h1 className="display mt-4 text-5xl sm:text-6xl xl:text-7xl">
-              הופכים את הסיפור של העסק שלכם ל
-              <span className="text-pink">נוכחות</span> ברשתות שאנשים מתחברים אליה.
-            </h1>
-            <p className="mt-6 max-w-xl text-lg leading-relaxed text-gray-500">
-              אסטרטגיה חדה, גאנטים מתוכננים וקריאייטיב מדויק שמביאים תוצאות, תופסים
-              את הטרנדים הנכונים ובונים לכם מותג בולט.
-            </p>
-            <div className="mt-9 flex flex-wrap gap-3">
-              <Link href="/contact" className="btn-pink">
-                בואו נרים את הפיד שלכם
-              </Link>
-              <Link href="/services" className="btn-ghost">
-                השירותים שלנו
-              </Link>
-            </div>
-          </div>
-
-          <div className="lg:col-span-5">
-            <div className="relative mx-auto max-w-sm">
-              <div className="absolute -inset-4 -rotate-3 rounded-brand bg-lime" aria-hidden="true" />
-              <div className="relative flex aspect-square flex-col justify-between rounded-brand bg-ink p-8 text-paper">
-                <div className="flex items-center justify-between">
-                  <span className="kicker font-serif text-lime">Bold Mind</span>
-                  <span className="text-xs font-bold text-gray-400">SOCIAL MASTERY</span>
-                </div>
-                <Mascot size={180} priority className="mx-auto" />
-                <p className="text-sm text-gray-300">
-                  מותג שנראה כמו מותג אמיתי — לא כמו עסק שמנסה &quot;לעשות שיווק&quot;.
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+      <CinematicHero />
 
       <HeroMarquee top={marqueeTop} bottom={marqueeBottom} />
 
+      {/* ---------------------------------------------------------- Story */}
+      <StorySection />
+
       {/* ------------------------------------------------------ Services */}
       <Section>
-        <SectionHeading
-          kicker="What we do"
-          title="מה אנחנו עושים?"
-          intro="אנחנו פה כדי לבנות לעסק שלכם אסטרטגיית תוכן מדויקת, לפצח את המסרים הנכונים ולייצר נוכחות דינמית ועקבית ברשתות שמביאה תוצאות."
-        />
-        <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+        <DepthReveal>
+          <SectionHeading
+            kicker="What we do"
+            title="מה אנחנו עושים?"
+            intro="אנחנו פה כדי לבנות לעסק שלכם אסטרטגיית תוכן מדויקת, לפצח את המסרים הנכונים ולייצר נוכחות דינמית ועקבית ברשתות שמביאה תוצאות."
+          />
+        </DepthReveal>
+        <DepthReveal delay={0.1} className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
           {services.map((s) => (
             <ServiceCard key={s.slug} service={s} />
           ))}
-        </div>
+        </DepthReveal>
       </Section>
 
       {/* --------------------------------------------------------- Works */}
       <Section className="bg-gray-50">
-        <div className="flex flex-wrap items-end justify-between gap-6">
+        <DepthReveal className="flex flex-wrap items-end justify-between gap-6">
           <SectionHeading kicker="Selected work" title="עסקים שלקחנו קדימה." />
           <Link href="/works" className="btn-ghost">
             לכל העבודות
           </Link>
-        </div>
-        <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+        </DepthReveal>
+        <DepthReveal delay={0.1} className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
           {works.map((w) => (
             <WorkCard key={w.slug} work={w} />
           ))}
-        </div>
+        </DepthReveal>
       </Section>
+
+      {/* ---------------------------------------------------- Testimonials */}
+      <TrustSection />
 
       {/* --------------------------------------------------- Methodology */}
       <Section dark>
-        <SectionHeading
-          kicker={methodology.kicker}
-          title={methodology.title}
-          intro={methodology.subtitle}
-          dark
-        />
-        <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+        <DepthReveal>
+          <SectionHeading
+            kicker={methodology.kicker}
+            title={methodology.title}
+            intro={methodology.subtitle}
+            dark
+          />
+        </DepthReveal>
+        <DepthReveal delay={0.1} className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
           {methodology.steps.map((step) => (
             <div key={step.n} className="rounded-brand border border-white/10 bg-gray-900 p-6">
               <span className="text-3xl font-extrabold text-pink">{step.n}</span>
@@ -106,13 +82,13 @@ export default function HomePage() {
               <p className="mt-3 text-sm leading-relaxed text-gray-300">{step.text}</p>
             </div>
           ))}
-        </div>
+        </DepthReveal>
       </Section>
 
       {/* ----------------------------------------------------- GSO / Why */}
       <Section>
         <div className="grid items-center gap-12 lg:grid-cols-2">
-          <div>
+          <DepthReveal>
             <SectionHeading
               kicker="GSO · הדור הבא של הנוכחות"
               title="נמצאים בתשובות של ה-AI, לא רק בגוגל."
@@ -133,13 +109,13 @@ export default function HomePage() {
                 </li>
               ))}
             </ul>
-          </div>
-          <div className="rounded-brand bg-gray-50 p-8 sm:p-12">
+          </DepthReveal>
+          <DepthReveal delay={0.15} className="rounded-brand bg-gray-50 p-8 sm:p-12">
             <p className="kicker font-serif">By the numbers</p>
             <div className="mt-8">
               <Stats />
             </div>
-          </div>
+          </DepthReveal>
         </div>
       </Section>
 
@@ -179,7 +155,9 @@ export default function HomePage() {
 
       {/* ---------------------------------------------------------- FAQ */}
       <Section>
-        <SectionHeading kicker="FAQ" title="שאלות שאתם בטח שואלים את עצמכם." />
+        <DepthReveal>
+          <SectionHeading kicker="FAQ" title="שאלות שאתם בטח שואלים את עצמכם." />
+        </DepthReveal>
         <div className="mt-10 max-w-3xl">
           <Faq items={homeFaqs} />
         </div>
