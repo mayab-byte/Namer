@@ -20,7 +20,7 @@ export function CtaBand({
   showMascot?: boolean;
 }) {
   return (
-    <section className="relative overflow-hidden bg-ink text-paper">
+    <section className="relative z-20 overflow-hidden bg-ink text-paper">
       {/* Decorative leopard pattern — right side, ~40% opacity, gradient-faded into the black */}
       <div
         aria-hidden="true"

@@ -17,15 +17,13 @@ export function Footer() {
       <div className="container-x grid gap-12 py-16 md:grid-cols-4">
         <div className="md:col-span-1">
           <Link href="/" aria-label="נמר סושיאל — לעמוד הבית" className="inline-block">
-            <span className="inline-flex rounded-2xl bg-paper p-4 shadow-sm">
-              <Image
-                src={asset("/brand/logo-vertical.png")}
-                alt="Namer Social"
-                width={140}
-                height={140}
-                className="h-auto w-32"
-              />
-            </span>
+            <Image
+              src={asset("/brand/logo-vertical-white.png")}
+              alt="Namer Social"
+              width={140}
+              height={136}
+              className="h-auto w-32"
+            />
           </Link>
           <p className="mt-5 max-w-xs text-sm leading-relaxed text-gray-400">
             {site.description}

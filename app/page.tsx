@@ -164,7 +164,7 @@ export default function HomePage() {
       </Section>
 
       {/* Reclining leopard sitting on the edge of the CTA (straddles the boundary) */}
-      <div className="relative z-10 -mb-24 flex justify-center bg-paper pt-10 sm:-mb-28">
+      <div className="relative -mb-24 flex justify-center bg-paper pt-10 sm:-mb-28">
         <Mascot variant="call" size={460} />
       </div>
 
