@@ -10,7 +10,6 @@ import { WorkCard } from "@/components/WorkCard";
 import { Stats } from "@/components/Stats";
 import { Faq } from "@/components/Faq";
 import { CtaBand } from "@/components/CtaBand";
-import { Mascot } from "@/components/Mascot";
 import { JsonLd } from "@/components/JsonLd";
 import { services, works, homeFaqs, methodology, marqueeTop, marqueeBottom } from "@/lib/content";
 import { faqSchema } from "@/lib/schema";
@@ -163,12 +162,7 @@ export default function HomePage() {
         </div>
       </Section>
 
-      {/* Reclining leopard sitting on the edge of the CTA (straddles the boundary) */}
-      <div className="relative -mb-24 flex justify-center bg-paper pt-10 sm:-mb-28">
-        <Mascot variant="call" size={460} />
-      </div>
-
-      <CtaBand showMascot={false} />
+      <CtaBand showMascot={false} straddleMascot />
     </>
   );
 }
