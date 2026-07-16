@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { Mascot } from "./Mascot";
+import { asset } from "@/lib/site";
 
 export function CtaBand({
   title = "בואו נצוד.",
@@ -19,8 +20,20 @@ export function CtaBand({
   showMascot?: boolean;
 }) {
   return (
-    <section className="bg-ink text-paper">
-      <div className="container-x flex flex-col items-start gap-8 py-20 md:flex-row md:items-center md:justify-between">
+    <section className="relative overflow-hidden bg-ink text-paper">
+      {/* Decorative leopard pattern — right side, ~40% opacity, gradient-faded into the black */}
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute inset-y-0 right-0 w-full opacity-40 md:w-2/3"
+        style={{
+          backgroundImage: `url(${asset("/brand/leo-pattern.webp")})`,
+          backgroundSize: "cover",
+          backgroundPosition: "right center",
+          WebkitMaskImage: "linear-gradient(to left, #000 0%, transparent 72%)",
+          maskImage: "linear-gradient(to left, #000 0%, transparent 72%)",
+        }}
+      />
+      <div className="container-x relative z-10 flex flex-col items-start gap-8 py-20 md:flex-row md:items-center md:justify-between">
         <div className="max-w-xl">
           <h2 className="display text-5xl sm:text-6xl">
             {title.replace(/\.$/, "")}
