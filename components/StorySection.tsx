@@ -1,39 +1,27 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useReducedMotion } from "@/lib/useReducedMotion";
-import { asset } from "@/lib/site";
+import { ScrollFrames } from "./ScrollFrames";
 
 if (typeof window !== "undefined") {
   gsap.registerPlugin(ScrollTrigger);
 }
 
+const STORY_FRAME_COUNT = 75;
+
 /**
- * "Story" scene: the second tiger clip enters as the camera pushes toward
- * it (depth + rotateX via GSAP ScrollTrigger, scrubbed to scroll — not a
- * plain fade). The heading overlaps the video's edge so the tiger reads as
- * passing behind the typography, per the master spec's tiger rules.
+ * "Story" scene: the tiger character advances frame-by-frame as the user
+ * scrolls past this section (a scroll-scrubbed sprite sequence, not a
+ * looping video) — see ScrollFrames. The panel itself still enters with
+ * depth + rotateX via GSAP ScrollTrigger, scrubbed to scroll.
  */
 export function StorySection() {
   const sectionRef = useRef<HTMLDivElement>(null);
   const panelRef = useRef<HTMLDivElement>(null);
-  const videoRef = useRef<HTMLVideoElement>(null);
   const reduced = useReducedMotion();
-  const [inView, setInView] = useState(false);
-
-  // Lazy-load the video only once the section is near the viewport.
-  useEffect(() => {
-    const el = sectionRef.current;
-    if (!el) return;
-    const io = new IntersectionObserver(
-      (entries) => entries.forEach((e) => e.isIntersecting && setInView(true)),
-      { rootMargin: "200px" },
-    );
-    io.observe(el);
-    return () => io.disconnect();
-  }, []);
 
   useEffect(() => {
     if (reduced || !panelRef.current || !sectionRef.current) return;
@@ -77,19 +65,11 @@ export function StorySection() {
 
         <div ref={panelRef} className="relative lg:col-span-7" style={{ willChange: "transform" }}>
           <div className="relative aspect-[16/10] overflow-hidden rounded-[32px] border border-white/10 bg-gray-900 sm:rounded-[48px]">
-            {inView && (
-              <video
-                ref={videoRef}
-                className="h-full w-full object-cover"
-                src={asset("/video/tiger-2.mp4")}
-                autoPlay
-                muted
-                loop
-                playsInline
-                preload="none"
-                aria-hidden="true"
-              />
-            )}
+            <ScrollFrames
+              frameCount={STORY_FRAME_COUNT}
+              basePath="/mascot/story-frames"
+              className="h-full w-full"
+            />
             <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-ink/50 via-transparent to-transparent" />
           </div>
         </div>
