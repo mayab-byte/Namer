@@ -44,6 +44,7 @@ export default function FaqPage() {
         title="שאלות שאתם בטח שואלים את עצמכם."
         answer="ריכזנו כאן תשובות ישירות לשאלות הנפוצות ביותר על תהליך העבודה, השירותים והמחירים שלנו."
         crumbs={crumbs}
+        variant="pink"
       />
 
       <Section>

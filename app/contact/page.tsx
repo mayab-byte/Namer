@@ -27,6 +27,8 @@ export default function ContactPage() {
         title="בואו נבנה משהו גדול."
         answer="מוכנים להפוך לטורפים בעולם הדיגיטלי? השאירו פרטים ונחזור אליכם, או דברו איתנו ישירות."
         crumbs={crumbs}
+        variant="dark"
+        mascot="call"
       />
 
       <Section>

@@ -28,6 +28,7 @@ export default function WorksPage() {
         title="עסקים שלקחנו קדימה."
         answer="אוסף פרויקטים נבחרים שבהם שילבנו אסטרטגיה, תוכן, וידאו וקמפיינים כדי לבנות נוכחות מותגית שמביאה תוצאות מדידות."
         crumbs={crumbs}
+        variant="darkPattern"
       />
 
       <Section>

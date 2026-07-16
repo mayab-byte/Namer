@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { Section, SectionHeading } from "@/components/Section";
-import { Marquee } from "@/components/Marquee";
+import { HeroMarquee } from "@/components/HeroMarquee";
 import { ServiceCard } from "@/components/ServiceCard";
 import { WorkCard } from "@/components/WorkCard";
 import { Stats } from "@/components/Stats";
@@ -8,7 +8,7 @@ import { Faq } from "@/components/Faq";
 import { CtaBand } from "@/components/CtaBand";
 import { Mascot } from "@/components/Mascot";
 import { JsonLd } from "@/components/JsonLd";
-import { services, works, homeFaqs, methodology } from "@/lib/content";
+import { services, works, homeFaqs, methodology, marqueeTop, marqueeBottom } from "@/lib/content";
 import { faqSchema } from "@/lib/schema";
 import { asset } from "@/lib/site";
 
@@ -58,7 +58,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      <Marquee />
+      <HeroMarquee top={marqueeTop} bottom={marqueeBottom} />
 
       {/* ------------------------------------------------------ Services */}
       <Section>
@@ -185,9 +185,9 @@ export default function HomePage() {
         </div>
       </Section>
 
-      {/* Reclining leopard divider (brand moment above the CTA) */}
-      <div className="flex justify-center overflow-hidden bg-paper pt-10">
-        <Mascot variant="call" size={420} className="-mb-1" />
+      {/* Reclining leopard sitting on the edge of the CTA (straddles the boundary) */}
+      <div className="relative z-10 -mb-24 flex justify-center bg-paper pt-10 sm:-mb-28">
+        <Mascot variant="call" size={460} />
       </div>
 
       <CtaBand showMascot={false} />

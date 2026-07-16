@@ -28,6 +28,8 @@ export default function ServicesPage() {
         title="שירותים"
         answer="נמר סושיאל מציעה מעטפת מותג מלאה: ניהול סושיאל, הפקת וידאו לרשתות, קמפיינים ממומנים וקידום GSO, וכתיבת ניוזלטרים. כל שירות עומד בפני עצמו ומשתלב לשפה מותגית אחת."
         crumbs={crumbs}
+        variant="lime"
+        mascot="head"
       />
 
       <Section>
