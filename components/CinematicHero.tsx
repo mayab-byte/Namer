@@ -1,9 +1,18 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useReducedMotion } from "@/lib/useReducedMotion";
+import { RotatingHeadline } from "./RotatingHeadline";
+import { asset } from "@/lib/site";
+
+const HEADLINES = [
+  "אנחנו בונים נוכחות עוצמתית ומעניינת",
+  "הופכים את הסיפור של העסק שלכם",
+  "למשהו שאנשים ברשתות מתחברים אליו",
+];
 
 /**
  * Cinematic hero: independent depth layers (background / fog / content)
@@ -59,30 +68,48 @@ export function CinematicHero() {
           <p className="kicker font-serif text-lime">Strategic Social Agency</p>
         </motion.div>
 
-        <div className="flex flex-col gap-8 pb-6 sm:pb-10 md:flex-row md:items-end md:justify-between">
-          <motion.h1
-            initial={{ opacity: 0, y: 50 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1, delay: 0.15, ease: [0.16, 1, 0.3, 1] }}
-            className="display max-w-3xl text-4xl sm:text-6xl lg:text-7xl"
-          >
-            הופכים את הסיפור של העסק שלכם ל<span className="text-pink">נוכחות</span> ברשתות שאנשים
-            מתחברים אליה.
-          </motion.h1>
+        <div className="flex flex-1 items-center py-6">
+          <div className="grid w-full items-center gap-10 lg:grid-cols-12">
+            <motion.div
+              initial={{ opacity: 0, y: 40 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 1, delay: 0.15, ease: [0.16, 1, 0.3, 1] }}
+              className="lg:col-span-7"
+            >
+              <RotatingHeadline
+                phrases={HEADLINES}
+                className="display max-w-3xl text-4xl sm:text-6xl lg:text-7xl"
+              />
 
-          <motion.div
-            initial={{ opacity: 0, y: 24 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.5, ease: [0.16, 1, 0.3, 1] }}
-            className="flex shrink-0 flex-wrap gap-3"
-          >
-            <Link href="/contact" className="btn-pink">
-              בואו נרים את הפיד שלכם
-            </Link>
-            <Link href="/services" className="btn-ghost border-white/25 text-paper hover:border-white/60">
-              השירותים שלנו
-            </Link>
-          </motion.div>
+              <div className="mt-8 flex flex-wrap gap-3">
+                <Link href="/contact" className="btn-pink">
+                  בואו נרים את הפיד שלכם
+                </Link>
+                <Link
+                  href="/services"
+                  className="btn-ghost border-white/25 text-paper hover:border-white/60"
+                >
+                  השירותים שלנו
+                </Link>
+              </div>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, scale: 0.9 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.9, delay: 0.4, ease: [0.16, 1, 0.3, 1] }}
+              className="flex justify-center lg:col-span-5 lg:justify-start"
+            >
+              <Image
+                src={asset("/mascot/hero-walk.webp")}
+                alt="נמר סושיאל"
+                width={420}
+                height={420}
+                priority
+                className="h-auto w-[240px] sm:w-[300px] lg:w-[360px]"
+              />
+            </motion.div>
+          </div>
         </div>
       </motion.div>
 
