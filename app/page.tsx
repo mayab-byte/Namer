@@ -3,7 +3,6 @@ import { Section, SectionHeading } from "@/components/Section";
 import { HeroMarquee } from "@/components/HeroMarquee";
 import { CinematicHero } from "@/components/CinematicHero";
 import { StorySection } from "@/components/StorySection";
-import { TrustSection } from "@/components/TrustSection";
 import { DepthReveal } from "@/components/DepthReveal";
 import { ServiceCard } from "@/components/ServiceCard";
 import { WorkCard } from "@/components/WorkCard";
@@ -58,9 +57,6 @@ export default function HomePage() {
           ))}
         </DepthReveal>
       </Section>
-
-      {/* ---------------------------------------------------- Testimonials */}
-      <TrustSection />
 
       {/* --------------------------------------------------- Methodology */}
       <Section dark>
