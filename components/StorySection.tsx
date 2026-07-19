@@ -10,7 +10,7 @@ if (typeof window !== "undefined") {
   gsap.registerPlugin(ScrollTrigger);
 }
 
-const STORY_FRAME_COUNT = 75;
+const STORY_FRAME_COUNT = 80;
 
 /**
  * "Story" scene: the tiger character advances frame-by-frame as the user
