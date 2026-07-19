@@ -63,15 +63,12 @@ export function StorySection() {
           </p>
         </div>
 
-        <div ref={panelRef} className="relative lg:col-span-7" style={{ willChange: "transform" }}>
-          <div className="relative aspect-[16/10] overflow-hidden rounded-[32px] border border-white/10 bg-gray-900 sm:rounded-[48px]">
-            <ScrollFrames
-              frameCount={STORY_FRAME_COUNT}
-              basePath="/mascot/story-frames"
-              className="h-full w-full"
-            />
-            <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-ink/50 via-transparent to-transparent" />
-          </div>
+        <div ref={panelRef} className="flex justify-center lg:col-span-7 lg:justify-start" style={{ willChange: "transform" }}>
+          <ScrollFrames
+            frameCount={STORY_FRAME_COUNT}
+            basePath="/mascot/story-frames"
+            className="w-[280px] sm:w-[360px] lg:w-[460px]"
+          />
         </div>
       </div>
     </section>

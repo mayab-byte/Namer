@@ -94,7 +94,7 @@ export function ScrollFrames({
 
   return (
     <div ref={containerRef} className={className}>
-      <canvas ref={canvasRef} className="h-full w-full object-contain" aria-hidden="true" />
+      <canvas ref={canvasRef} className="h-auto w-full" aria-hidden="true" />
     </div>
   );
 }
