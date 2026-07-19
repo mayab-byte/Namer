@@ -24,9 +24,6 @@ export default function HomePage() {
 
       <HeroMarquee top={marqueeTop} bottom={marqueeBottom} />
 
-      {/* ---------------------------------------------------------- Story */}
-      <StorySection />
-
       {/* ------------------------------------------------------ Services */}
       <Section>
         <DepthReveal>
@@ -42,6 +39,9 @@ export default function HomePage() {
           ))}
         </DepthReveal>
       </Section>
+
+      {/* ---------------------------------------------------------- Story */}
+      <StorySection />
 
       {/* --------------------------------------------------------- Works */}
       <Section className="bg-gray-50">
