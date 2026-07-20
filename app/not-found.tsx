@@ -8,7 +8,7 @@ export default function NotFound() {
       <p className="kicker font-serif mt-8">404</p>
       <h1 className="display mt-3 text-5xl sm:text-6xl">העמוד נעלם מהפיד.</h1>
       <p className="mt-5 max-w-md text-lg text-gray-500">
-        לא מצאנו את העמוד שחיפשתם. אולי הוא עבר, אולי הקישור שגוי — בואו נחזיר אתכם למסלול.
+        לא מצאנו את העמוד שחיפשתם. אולי הוא עבר, אולי הקישור שגוי - בואו נחזיר אתכם למסלול.
       </p>
       <div className="mt-8 flex flex-wrap justify-center gap-3">
         <Link href="/" className="btn-pink">

@@ -17,7 +17,7 @@ export function Logo({
 }) {
   const src = variant === "dark" ? "/brand/logo-white.png" : "/brand/logo.png";
   return (
-    <Link href="/" className={`inline-flex items-center ${className}`} aria-label="נמר סושיאל — לעמוד הבית">
+    <Link href="/" className={`inline-flex items-center ${className}`} aria-label="נמר סושיאל - לעמוד הבית">
       <Image
         src={asset(src)}
         alt="Namer Social"

@@ -8,7 +8,7 @@ import { works } from "@/lib/content";
 import { breadcrumbSchema } from "@/lib/schema";
 
 export const metadata: Metadata = {
-  title: "עבודות — מותגים שלקחנו קדימה",
+  title: "עבודות - מותגים שלקחנו קדימה",
   description:
     "פרויקטים נבחרים של נמר סושיאל: ניהול סושיאל, הפקת וידאו וקמפיינים שהביאו תוצאות מדידות למותגים בתחומי לייפסטייל, נדל\"ן, בריאות ופרימיום.",
   alternates: { canonical: "/works" },

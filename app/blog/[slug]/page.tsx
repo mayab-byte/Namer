@@ -74,7 +74,7 @@ export default async function BlogPostPage({
           ))}
 
           <div className="mt-4 rounded-brand border border-ink/10 bg-gray-50 p-6 text-sm text-gray-600">
-            נכתב על ידי צוות {site.name} — סוכנות סושיאל, וידאו וקידום.
+            נכתב על ידי צוות {site.name} - סוכנות סושיאל, וידאו וקידום.
           </div>
         </article>
 

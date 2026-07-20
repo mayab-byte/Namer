@@ -16,7 +16,7 @@ export function Footer() {
     <footer className="mt-24 bg-ink text-paper">
       <div className="container-x grid gap-12 py-16 md:grid-cols-4">
         <div className="md:col-span-1">
-          <Link href="/" aria-label="נמר סושיאל — לעמוד הבית" className="inline-block">
+          <Link href="/" aria-label="נמר סושיאל - לעמוד הבית" className="inline-block">
             <Image
               src={asset("/brand/logo-vertical-white.png")}
               alt="Namer Social"

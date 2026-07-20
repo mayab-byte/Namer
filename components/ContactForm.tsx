@@ -20,7 +20,7 @@ export function ContactForm() {
     const phone = String(data.get("phone") || "");
     const message = String(data.get("message") || "");
     const body = `שם: ${name}\nעסק: ${business}\nטלפון: ${phone}\n\n${message}`;
-    const subject = `פנייה חדשה מהאתר — ${name}`;
+    const subject = `פנייה חדשה מהאתר - ${name}`;
     window.location.href = `mailto:${site.contact.email}?subject=${encodeURIComponent(
       subject,
     )}&body=${encodeURIComponent(body)}`;
@@ -63,7 +63,7 @@ export function ContactForm() {
       </button>
       {sent && (
         <p role="status" className="text-sm font-semibold text-pink">
-          תודה! נפתח עבורכם חלון מייל עם הפרטים — רק ללחוץ שליחה. אפשר גם להתקשר אלינו ישירות.
+          תודה! נפתח עבורכם חלון מייל עם הפרטים - רק ללחוץ שליחה. אפשר גם להתקשר אלינו ישירות.
         </p>
       )}
     </form>

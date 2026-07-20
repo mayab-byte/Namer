@@ -31,7 +31,7 @@ const bodoni = Bodoni_Moda({
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: `${site.name} — סוכנות סושיאל, וידאו וקידום`,
+    default: `${site.name} - סוכנות סושיאל, וידאו וקידום`,
     template: `%s | ${site.name}`,
   },
   description: site.description,
@@ -54,13 +54,13 @@ export const metadata: Metadata = {
     locale: "he_IL",
     url: siteUrl,
     siteName: site.name,
-    title: `${site.name} — סוכנות סושיאל, וידאו וקידום`,
+    title: `${site.name} - סוכנות סושיאל, וידאו וקידום`,
     description: site.description,
     images: [{ url: `${siteUrl}/og.png`, width: 1200, height: 630, alt: site.name }],
   },
   twitter: {
     card: "summary_large_image",
-    title: `${site.name} — סוכנות סושיאל, וידאו וקידום`,
+    title: `${site.name} - סוכנות סושיאל, וידאו וקידום`,
     description: site.description,
     images: [`${siteUrl}/og.png`],
   },

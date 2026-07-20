@@ -24,7 +24,7 @@ export function WorkCard({ work }: { work: Work }) {
         {work.image ? (
           <Image
             src={asset(work.image)}
-            alt={`${work.title} — עבודה של נמר סושיאל`}
+            alt={`${work.title} - עבודה של נמר סושיאל`}
             fill
             sizes="(max-width: 768px) 100vw, 25vw"
             className="object-cover object-top transition-transform duration-500 group-hover:scale-105"

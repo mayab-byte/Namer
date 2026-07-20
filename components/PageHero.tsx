@@ -34,7 +34,7 @@ export function PageHero({
 }: {
   kicker?: string;
   title: string;
-  answer?: string;
+  answer?: ReactNode;
   crumbs: { name: string; href: string }[];
   children?: ReactNode;
   variant?: Variant;

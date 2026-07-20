@@ -11,7 +11,7 @@ import { breadcrumbSchema, faqSchema } from "@/lib/schema";
 import type { FAQ } from "@/lib/content";
 
 export const metadata: Metadata = {
-  title: "חבילות ומחירים — ניהול סושיאל לעסקים",
+  title: "חבילות ומחירים - ניהול סושיאל לעסקים",
   description:
     "חבילות ניהול הסושיאל של נמר סושיאל: מהתנעה עם נוכחות מקצועית ועקבית, ועד מעטפת מותג מלאה עם וידאו, קמפיינים ו-GSO. בוחרים לפי השלב שבו העסק נמצא.",
   alternates: { canonical: "/packages" },
@@ -25,7 +25,7 @@ const crumbs = [
 const packageFaqs: FAQ[] = [
   {
     q: "כמה עולה ניהול סושיאל לעסק?",
-    a: "המחיר נקבע לפי היקף השירות: כמות התכנים, הפקות וידאו, קמפיינים ממומנים וליווי אסטרטגי. אנחנו מתאימים חבילה לשלב שבו העסק נמצא — מהתנעה ועד מעטפת מלאה.",
+    a: "המחיר נקבע לפי היקף השירות: כמות התכנים, הפקות וידאו, קמפיינים ממומנים וליווי אסטרטגי. אנחנו מתאימים חבילה לשלב שבו העסק נמצא - מהתנעה ועד מעטפת מלאה.",
   },
   {
     q: "אפשר לשדרג חבילה תוך כדי?",
@@ -33,7 +33,7 @@ const packageFaqs: FAQ[] = [
   },
   {
     q: "יש התחייבות לתקופה?",
-    a: "אנחנו עובדים בגאנט חודשי. בניית מותג היא תהליך מצטבר, ולכן אנחנו ממליצים על מחויבות של כמה חודשים כדי לראות תוצאות אמיתיות — אבל התנאים המדויקים נסגרים יחד.",
+    a: "אנחנו עובדים בגאנט חודשי. בניית מותג היא תהליך מצטבר, ולכן אנחנו ממליצים על מחויבות של כמה חודשים כדי לראות תוצאות אמיתיות - אבל התנאים המדויקים נסגרים יחד.",
   },
 ];
 
@@ -44,7 +44,7 @@ export default function PackagesPage() {
       <PageHero
         kicker="Packages"
         title="חבילות שמתאימות לשלב שלכם."
-        answer="נמר סושיאל מציעה ארבע חבילות ניהול סושיאל — מהתנעה עם נוכחות מקצועית ועקבית, ועד מעטפת מותג מלאה עם וידאו, קמפיינים ו-GSO. בוחרים לפי המטרות והשלב שבו העסק נמצא."
+        answer="נמר סושיאל מציעה ארבע חבילות ניהול סושיאל - מהתנעה עם נוכחות מקצועית ועקבית, ועד מעטפת מותג מלאה עם וידאו, קמפיינים ו-GSO. בוחרים לפי המטרות והשלב שבו העסק נמצא."
         crumbs={crumbs}
       />
 
@@ -87,12 +87,14 @@ export default function PackagesPage() {
         <p className="mt-8 text-sm text-gray-400">
           * חבילות מותאמות אישית. הצעת מחיר סופית נבנית אחרי פגישת אפיון.
         </p>
-        <div className="mt-10 flex justify-center">
-          <Mascot variant="peek" size={320} />
-        </div>
       </Section>
 
-      <Section className="bg-gray-50">
+      <Section className="relative bg-gray-50">
+        {/* Mascot straddles the seam with the section above: paws rest on
+            this section's own top edge, body rising into the white space. */}
+        <div className="pointer-events-none absolute inset-x-0 -top-24 flex justify-center">
+          <Mascot variant="peek" size={280} />
+        </div>
         <h2 className="display text-4xl sm:text-5xl">שאלות על חבילות ומחירים</h2>
         <div className="mt-10 max-w-3xl">
           <Faq items={packageFaqs} />

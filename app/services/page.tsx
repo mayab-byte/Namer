@@ -8,9 +8,9 @@ import { services, processSteps } from "@/lib/content";
 import { breadcrumbSchema } from "@/lib/schema";
 
 export const metadata: Metadata = {
-  title: "שירותים — סושיאל, וידאו, קמפיינים וניוזלטרים",
+  title: "שירותים - סושיאל, וידאו, קמפיינים וניוזלטרים",
   description:
-    "השירותים של נמר סושיאל: ניהול סושיאל, הפקת וידאו לרשתות, קמפיינים ממומנים וקידום GSO, וכתיבת ניוזלטרים — מעטפת מותג מלאה תחת גג אחד.",
+    "השירותים של נמר סושיאל: ניהול סושיאל, הפקת וידאו לרשתות, קמפיינים ממומנים וקידום GSO, וכתיבת ניוזלטרים - מעטפת מותג מלאה תחת גג אחד.",
   alternates: { canonical: "/services" },
 };
 
