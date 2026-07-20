@@ -30,7 +30,7 @@ export default function ContactPage() {
 
           <div className="mt-8 grid gap-5 sm:grid-cols-2">
             <div className="relative flex aspect-square items-end justify-center rounded-brand">
-              <TigerAnim size={420} className="!max-w-[220px] sm:!max-w-[420px]" />
+              <TigerAnim size={360} className="!max-w-[190px] sm:!max-w-[360px]" />
             </div>
             <div className="flex aspect-square flex-col justify-center rounded-brand">
               <h1 className="display text-4xl sm:text-5xl">בואו נבנה משהו גדול.</h1>

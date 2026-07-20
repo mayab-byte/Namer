@@ -182,7 +182,7 @@ function HeroContent({
             <canvas
               ref={canvasRef}
               aria-hidden="true"
-              className="h-auto w-[240px] object-contain sm:w-[300px] lg:w-[360px]"
+              className="h-auto w-[300px] object-contain sm:w-[380px] lg:w-[460px]"
             />
           </motion.div>
         </div>

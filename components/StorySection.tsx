@@ -70,7 +70,7 @@ export function StorySection() {
             playsInline
             preload="auto"
             aria-label="נמר סושיאל"
-            className="h-auto w-[280px] sm:w-[360px] lg:w-[420px]"
+            className="h-auto w-[240px] sm:w-[320px] lg:w-[360px]"
           />
         </div>
       </div>
