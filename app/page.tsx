@@ -5,7 +5,7 @@ import { CinematicHero } from "@/components/CinematicHero";
 import { StorySection } from "@/components/StorySection";
 import { DepthReveal } from "@/components/DepthReveal";
 import { ServicesShowcase } from "@/components/ServicesShowcase";
-import { WorkCard } from "@/components/WorkCard";
+import { WorksCarousel } from "@/components/WorksCarousel";
 import { Stats } from "@/components/Stats";
 import { Faq } from "@/components/Faq";
 import { CtaBand } from "@/components/CtaBand";
@@ -40,10 +40,8 @@ export default function HomePage() {
             לכל העבודות
           </Link>
         </DepthReveal>
-        <DepthReveal delay={0.1} className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-          {works.map((w) => (
-            <WorkCard key={w.slug} work={w} />
-          ))}
+        <DepthReveal delay={0.1} className="mt-12">
+          <WorksCarousel works={works} />
         </DepthReveal>
       </Section>
 

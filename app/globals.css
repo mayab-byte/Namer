@@ -92,6 +92,16 @@ body {
     @apply border border-ink/15 bg-transparent text-ink hover:border-ink/40;
   }
 
+  /* Hides the native scrollbar on drag/swipe carousels while keeping the
+     element natively scrollable (touch, wheel, keyboard all still work). */
+  .no-scrollbar {
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+
   /* Big editorial headline */
   .display {
     @apply font-extrabold leading-[0.95] tracking-tight;
