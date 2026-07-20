@@ -4,7 +4,7 @@ import { HeroMarquee } from "@/components/HeroMarquee";
 import { CinematicHero } from "@/components/CinematicHero";
 import { StorySection } from "@/components/StorySection";
 import { DepthReveal } from "@/components/DepthReveal";
-import { ServiceCard } from "@/components/ServiceCard";
+import { ServicesShowcase } from "@/components/ServicesShowcase";
 import { WorkCard } from "@/components/WorkCard";
 import { Stats } from "@/components/Stats";
 import { Faq } from "@/components/Faq";
@@ -26,18 +26,7 @@ export default function HomePage() {
 
       {/* ------------------------------------------------------ Services */}
       <Section>
-        <DepthReveal>
-          <SectionHeading
-            kicker="What we do"
-            title="מה אנחנו עושים?"
-            intro="אנחנו פה כדי לבנות לעסק שלכם אסטרטגיית תוכן מדויקת, לפצח את המסרים הנכונים ולייצר נוכחות דינמית ועקבית ברשתות שמביאה תוצאות."
-          />
-        </DepthReveal>
-        <DepthReveal delay={0.1} className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
-          {services.map((s) => (
-            <ServiceCard key={s.slug} service={s} />
-          ))}
-        </DepthReveal>
+        <ServicesShowcase services={services} />
       </Section>
 
       {/* ---------------------------------------------------------- Story */}
