@@ -364,6 +364,24 @@ export const works: Work[] = [
     image: "/works/bmf360.webp",
     accent: "pink",
   },
+  {
+    slug: "halap",
+    title: "חלף שומרון · חטיבת הנדל\"ן",
+    category: "נדל\"ן · תוכן ומיתוג",
+    result: "נוכחות מקצועית ברשת סביב פרויקטים יוקרתיים ותהליכי מכירה",
+    handle: "halap.nadlan",
+    image: "/works/halap.webp",
+    accent: "lime",
+  },
+  {
+    slug: "dnr",
+    title: "ד.נ.ר סוכנות לביטוח",
+    category: "ביטוח · ניהול סושיאל",
+    result: "תוכן שוטף שמבסס אמון וסמכות מקצועית מול לקוחות ומבוטחים",
+    handle: "dnr_ins",
+    image: "/works/dnr.webp",
+    accent: "dark",
+  },
 ];
 
 /* ------------------------------------------------------------------ */
