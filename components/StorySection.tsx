@@ -1,22 +1,20 @@
 "use client";
 
 import { useEffect, useRef } from "react";
+import Image from "next/image";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useReducedMotion } from "@/lib/useReducedMotion";
-import { ScrollFrames } from "./ScrollFrames";
+import { asset } from "@/lib/site";
 
 if (typeof window !== "undefined") {
   gsap.registerPlugin(ScrollTrigger);
 }
 
-const STORY_FRAME_COUNT = 80;
-
 /**
- * "Story" scene: the tiger character advances frame-by-frame as the user
- * scrolls past this section (a scroll-scrubbed sprite sequence, not a
- * looping video) — see ScrollFrames. The panel itself still enters with
- * depth + rotateX via GSAP ScrollTrigger, scrubbed to scroll.
+ * "Story" scene: the tiger character just loops on its own (autoplay,
+ * independent of scroll). The panel itself still reveals with depth +
+ * rotateX via GSAP ScrollTrigger as it enters the viewport.
  */
 export function StorySection() {
   const sectionRef = useRef<HTMLDivElement>(null);
@@ -64,10 +62,12 @@ export function StorySection() {
         </div>
 
         <div ref={panelRef} className="flex justify-center lg:col-span-7 lg:justify-start" style={{ willChange: "transform" }}>
-          <ScrollFrames
-            frameCount={STORY_FRAME_COUNT}
-            basePath="/mascot/story-frames"
-            className="w-[280px] sm:w-[360px] lg:w-[460px]"
+          <Image
+            src={asset("/mascot/story-loop.webp")}
+            alt="נמר סושיאל"
+            width={500}
+            height={500}
+            className="h-auto w-[280px] sm:w-[360px] lg:w-[460px]"
           />
         </div>
       </div>
