@@ -1,7 +1,6 @@
 "use client";
 
 import { useEffect, useRef } from "react";
-import Image from "next/image";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useReducedMotion } from "@/lib/useReducedMotion";
@@ -61,13 +60,17 @@ export function StorySection() {
           </p>
         </div>
 
-        <div ref={panelRef} className="flex justify-center lg:col-span-7 lg:justify-start" style={{ willChange: "transform" }}>
-          <Image
-            src={asset("/mascot/story-loop.webp")}
-            alt="נמר סושיאל"
-            width={500}
-            height={500}
-            className="h-auto w-[280px] sm:w-[360px] lg:w-[460px]"
+        <div ref={panelRef} className="flex justify-center lg:col-span-7" style={{ willChange: "transform" }}>
+          <video
+            src={asset("/mascot/story-partners.mp4")}
+            poster={asset("/mascot/story-partners-poster.webp")}
+            autoPlay={!reduced}
+            muted
+            loop
+            playsInline
+            preload="auto"
+            aria-label="נמר סושיאל"
+            className="h-auto w-[280px] sm:w-[360px] lg:w-[420px]"
           />
         </div>
       </div>
