@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
-import Link from "next/link";
 import { PageHero } from "@/components/PageHero";
 import { Section } from "@/components/Section";
+import { ServicesGrid } from "@/components/ServicesGrid";
 import { CtaBand } from "@/components/CtaBand";
 import { JsonLd } from "@/components/JsonLd";
 import { services, processSteps } from "@/lib/content";
@@ -33,25 +33,7 @@ export default function ServicesPage() {
       />
 
       <Section>
-        <div className="grid gap-6 md:grid-cols-2">
-          {services.map((s) => (
-            <Link
-              key={s.slug}
-              href={`/services/${s.slug}`}
-              className="group flex flex-col rounded-brand border border-ink/10 p-8 transition-all hover:-translate-y-1 hover:border-pink"
-            >
-              <p className="kicker font-serif">{s.kicker}</p>
-              <h2 className="mt-3 text-3xl font-extrabold">{s.title}</h2>
-              <p className="mt-4 flex-1 leading-relaxed text-gray-500">{s.short}</p>
-              <span className="mt-6 inline-flex items-center gap-1.5 font-bold text-ink group-hover:text-pink">
-                מידע נוסף
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true" className="rotate-180">
-                  <path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-                </svg>
-              </span>
-            </Link>
-          ))}
-        </div>
+        <ServicesGrid services={services} />
       </Section>
 
       {/* Process */}
