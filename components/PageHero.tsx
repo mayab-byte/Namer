@@ -30,6 +30,7 @@ export function PageHero({
   children,
   variant = "cream",
   mascot,
+  mascotMedia,
   sideMedia,
 }: {
   kicker?: string;
@@ -39,6 +40,9 @@ export function PageHero({
   children?: ReactNode;
   variant?: Variant;
   mascot?: MascotPose;
+  /** Replaces the built-in corner `mascot` illustration with any custom
+   * media (e.g. a video clip) in that same bottom-corner slot. */
+  mascotMedia?: ReactNode;
   /** Small standalone character clip placed beside the answer paragraph
    * (e.g. <TigerAnim />) — an alternative to the large corner `mascot`. */
   sideMedia?: ReactNode;
@@ -60,9 +64,9 @@ export function PageHero({
         />
       )}
 
-      {mascot && (
+      {(mascot || mascotMedia) && (
         <div className="pointer-events-none absolute bottom-0 left-4 hidden items-end md:flex lg:left-10">
-          <Mascot variant={mascot} size={mascot === "call" ? 320 : 220} />
+          {mascotMedia ?? <Mascot variant={mascot!} size={mascot === "call" ? 320 : 220} />}
         </div>
       )}
 

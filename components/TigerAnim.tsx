@@ -13,15 +13,19 @@ import { asset } from "@/lib/site";
 export function TigerAnim({
   className = "",
   size = 160,
+  src = "/mascot/tiger-contact.mp4",
+  poster = "/mascot/tiger-contact-poster.webp",
 }: {
   className?: string;
   size?: number;
+  src?: string;
+  poster?: string;
 }) {
   const reduced = useReducedMotion();
   return (
     <video
-      src={asset("/mascot/tiger-contact.mp4")}
-      poster={asset("/mascot/tiger-contact-poster.webp")}
+      src={asset(src)}
+      poster={asset(poster)}
       autoPlay={!reduced}
       muted
       loop

@@ -3,8 +3,14 @@
 import { useEffect, useRef, useState } from "react";
 import { stats as defaultStats } from "@/lib/content";
 
+const colorMap = {
+  pink: "text-pink",
+  lime: "text-lime",
+  ink: "text-ink",
+} as const;
+
 /** Animated count-up for a single stat (e.g. "250%", "85M+", "24/7"). */
-function CountUp({ value, dark }: { value: string; dark: boolean }) {
+function CountUp({ value, color }: { value: string; color: keyof typeof colorMap }) {
   const ref = useRef<HTMLSpanElement>(null);
   const [display, setDisplay] = useState(value);
 
@@ -59,10 +65,7 @@ function CountUp({ value, dark }: { value: string; dark: boolean }) {
   }, [value]);
 
   return (
-    <span
-      ref={ref}
-      className={`block text-5xl font-extrabold tabular-nums sm:text-6xl ${dark ? "text-lime" : "text-pink"}`}
-    >
+    <span ref={ref} className={`block text-5xl font-extrabold tabular-nums sm:text-6xl ${colorMap[color]}`}>
       {display}
     </span>
   );
@@ -70,11 +73,11 @@ function CountUp({ value, dark }: { value: string; dark: boolean }) {
 
 export function Stats({
   items = defaultStats,
-  dark = false,
+  color = "pink",
   cols = 2,
 }: {
   items?: { value: string; label: string }[];
-  dark?: boolean;
+  color?: keyof typeof colorMap;
   cols?: 2 | 4;
 }) {
   const gridCols = cols === 4 ? "grid-cols-2 lg:grid-cols-4" : "grid-cols-2";
@@ -84,8 +87,8 @@ export function Stats({
         <div key={s.label} className="text-center md:text-start">
           <dt className="sr-only">{s.label}</dt>
           <dd>
-            <CountUp value={s.value} dark={dark} />
-            <span className={`mt-3 block text-sm leading-snug ${dark ? "text-gray-300" : "text-gray-500"}`}>
+            <CountUp value={s.value} color={color} />
+            <span className="mt-3 block text-sm leading-snug text-gray-500">
               {s.label}
             </span>
           </dd>

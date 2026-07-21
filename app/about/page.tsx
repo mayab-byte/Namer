@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { PageHero } from "@/components/PageHero";
 import { Section, SectionHeading } from "@/components/Section";
 import { Stats } from "@/components/Stats";
+import { TigerAnim } from "@/components/TigerAnim";
 import { CtaBand } from "@/components/CtaBand";
 import { JsonLd } from "@/components/JsonLd";
 import { methodology } from "@/lib/content";
@@ -35,7 +36,9 @@ export default function AboutPage() {
         }
         crumbs={crumbs}
         variant="dark"
-        mascot="peek"
+        mascotMedia={
+          <TigerAnim src="/mascot/story-partners.mp4" poster="/mascot/story-partners-poster.webp" size={280} />
+        }
       />
 
       <Section>
@@ -91,7 +94,7 @@ export default function AboutPage() {
 
       <Section>
         <div className="rounded-brand bg-gray-50 p-8 sm:p-12">
-          <Stats cols={4} />
+          <Stats cols={4} color="ink" />
         </div>
       </Section>
 

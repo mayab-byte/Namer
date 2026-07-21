@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -58,6 +59,9 @@ export function StorySection() {
             אנחנו מתחילים מלהקשיב לכם - לומדים את העסק לעומק, מזהים את הקול שכבר קיים אצלכם,
             ומוציאים אותו החוצה בשפה שאי אפשר להתעלם ממנה.
           </p>
+          <Link href="/about" className="btn-ghost mt-8 border-white/25 text-paper hover:border-white/60">
+            לקרוא עוד עלינו
+          </Link>
         </div>
 
         <div ref={panelRef} className="flex justify-center lg:col-span-7" style={{ willChange: "transform" }}>
