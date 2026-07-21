@@ -9,12 +9,20 @@ import { asset } from "@/lib/site";
 
 const HEADLINES = [
   "אנחנו בונים נוכחות עוצמתית ומעניינת",
-  "הופכים את הסיפור של העסק שלכם",
-  "למשהו שאנשים ברשתות מתחברים אליו",
+  <>
+    הופכים את הסיפור
+    <br />
+    של העסק שלכם
+  </>,
+  <>
+    למשהו שאנשים
+    <br />
+    מתחברים אליו
+  </>,
 ];
 
 const FRAME_COUNT = 70;
-const FRAME_INTERVAL_MS = 90;
+const FRAME_INTERVAL_MS = 133;
 const framePath = (i: number) => asset(`/mascot/hero-frames/frame-${String(i).padStart(3, "0")}.webp`);
 
 /**

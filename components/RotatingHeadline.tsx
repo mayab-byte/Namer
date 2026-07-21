@@ -1,5 +1,6 @@
 "use client";
 
+import type { ReactNode } from "react";
 import { useEffect, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { useReducedMotion } from "@/lib/useReducedMotion";
@@ -21,7 +22,7 @@ export function RotatingHeadline({
   index: controlledIndex,
   className = "",
 }: {
-  phrases: string[];
+  phrases: ReactNode[];
   interval?: number;
   /** Externally-controlled phrase index (e.g. synced to scroll). Omit to
    * fall back to automatic timer-based rotation. */
