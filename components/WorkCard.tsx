@@ -18,7 +18,7 @@ export function WorkCard({ work }: { work: Work }) {
   return (
     <Wrapper
       {...wrapperProps}
-      className="group flex flex-col overflow-hidden rounded-brand border border-ink/10 bg-paper transition-all hover:-translate-y-1 hover:border-pink"
+      className="group flex h-full flex-col overflow-hidden rounded-brand border border-ink/10 bg-paper transition-all hover:-translate-y-1 hover:border-pink"
     >
       <div className="relative aspect-[3/4] overflow-hidden bg-gray-50">
         {work.image ? (
