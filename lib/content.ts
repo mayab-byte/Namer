@@ -374,12 +374,12 @@ export const works: Work[] = [
     accent: "lime",
   },
   {
-    slug: "dnr",
-    title: "ד.נ.ר סוכנות לביטוח",
-    category: "ביטוח · ניהול סושיאל",
-    result: "תוכן שוטף שמבסס אמון וסמכות מקצועית מול לקוחות ומבוטחים",
-    handle: "dnr_ins",
-    image: "/works/dnr.webp",
+    slug: "tao",
+    title: "Tao Tattoo Studio",
+    category: "קעקועים · פירסינג",
+    result: "קהילה של כמעט 16K עוקבים סביב אמנות קעקוע, פירסינג ותוכן סטודיו",
+    handle: "taotattooo",
+    image: "/works/tao.webp",
     accent: "dark",
   },
 ];

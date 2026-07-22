@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
-import { motion } from "framer-motion";
+import { motion, useScroll, useMotionValueEvent } from "framer-motion";
 import { useReducedMotion } from "@/lib/useReducedMotion";
 import { RotatingHeadline } from "./RotatingHeadline";
 import { asset } from "@/lib/site";
@@ -26,12 +26,14 @@ const FRAME_INTERVAL_MS = 133;
 const framePath = (i: number) => asset(`/mascot/hero-frames/frame-${String(i).padStart(3, "0")}.webp`);
 
 /**
- * Cinematic hero: the tiger walk-cycle just runs on its own loop (autoplay,
- * independent of scroll), and the headline switches phrase in step with
- * that same loop — not with scroll position.
+ * Cinematic hero: the tiger walk-cycle runs on its own loop (autoplay,
+ * independent of scroll), while the headline advances with scroll
+ * position — as the section scrolls past, once per its own natural
+ * height (no pin/scrub, just plain scroll-linked progress).
  */
 export function CinematicHero() {
   const reduced = useReducedMotion();
+  const sectionRef = useRef<HTMLElement>(null);
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const imagesRef = useRef<HTMLImageElement[]>([]);
   const frameRef = useRef(0);
@@ -71,28 +73,38 @@ export function CinematicHero() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  // Autoplay loop: advances the frame (and, in step with it, the headline)
-  // on its own timer — no connection to scroll position at all.
+  // Autoplay loop: advances the walk-cycle frame on its own timer — no
+  // connection to scroll position at all.
   useEffect(() => {
     if (reduced) return;
     const id = setInterval(() => {
       frameRef.current = (frameRef.current + 1) % FRAME_COUNT;
       draw(frameRef.current);
-
-      const phraseIdx = Math.min(
-        HEADLINES.length - 1,
-        Math.floor((frameRef.current / FRAME_COUNT) * HEADLINES.length),
-      );
-      if (phraseIdx !== lastPhraseRef.current) {
-        lastPhraseRef.current = phraseIdx;
-        setPhraseIndex(phraseIdx);
-      }
     }, FRAME_INTERVAL_MS);
     return () => clearInterval(id);
   }, [reduced]);
 
+  // Headline: advances with scroll position as the (normal-height) section
+  // scrolls past — not pinned/scrubbed, just plain scroll-linked progress.
+  const { scrollYProgress } = useScroll({
+    target: sectionRef,
+    offset: ["start start", "end start"],
+  });
+
+  useMotionValueEvent(scrollYProgress, "change", (v) => {
+    if (reduced) return;
+    const phraseIdx = Math.min(HEADLINES.length - 1, Math.max(0, Math.floor(v * HEADLINES.length)));
+    if (phraseIdx !== lastPhraseRef.current) {
+      lastPhraseRef.current = phraseIdx;
+      setPhraseIndex(phraseIdx);
+    }
+  });
+
   return (
-    <section className="relative flex h-[100svh] min-h-[560px] flex-col overflow-hidden bg-ink text-paper">
+    <section
+      ref={sectionRef}
+      className="relative flex h-[100svh] min-h-[560px] flex-col overflow-hidden bg-ink text-paper"
+    >
       <div className="absolute inset-0 bg-gradient-to-br from-pink-deep via-ink to-ink" aria-hidden="true" />
       <HeroLayers />
       <HeroContent phraseIndex={reduced ? 0 : phraseIndex} canvasRef={canvasRef} />
