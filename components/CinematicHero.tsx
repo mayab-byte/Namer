@@ -1,8 +1,8 @@
 "use client";
 
 import Link from "next/link";
-import { useEffect, useRef, useState } from "react";
-import { motion, useScroll, useMotionValueEvent } from "framer-motion";
+import { useEffect, useRef } from "react";
+import { motion } from "framer-motion";
 import { useReducedMotion } from "@/lib/useReducedMotion";
 import { RotatingHeadline } from "./RotatingHeadline";
 import { asset } from "@/lib/site";
@@ -27,18 +27,14 @@ const framePath = (i: number) => asset(`/mascot/hero-frames/frame-${String(i).pa
 
 /**
  * Cinematic hero: the tiger walk-cycle runs on its own loop (autoplay,
- * independent of scroll), while the headline advances with scroll
- * position — as the section scrolls past, once per its own natural
- * height (no pin/scrub, just plain scroll-linked progress).
+ * independent of scroll), and the headline auto-rotates on its own timer
+ * too — no connection to scroll position at all.
  */
 export function CinematicHero() {
   const reduced = useReducedMotion();
-  const sectionRef = useRef<HTMLElement>(null);
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const imagesRef = useRef<HTMLImageElement[]>([]);
   const frameRef = useRef(0);
-  const lastPhraseRef = useRef(0);
-  const [phraseIndex, setPhraseIndex] = useState(0);
 
   function draw(index: number) {
     const canvas = canvasRef.current;
@@ -84,30 +80,11 @@ export function CinematicHero() {
     return () => clearInterval(id);
   }, [reduced]);
 
-  // Headline: advances with scroll position as the (normal-height) section
-  // scrolls past — not pinned/scrubbed, just plain scroll-linked progress.
-  const { scrollYProgress } = useScroll({
-    target: sectionRef,
-    offset: ["start start", "end start"],
-  });
-
-  useMotionValueEvent(scrollYProgress, "change", (v) => {
-    if (reduced) return;
-    const phraseIdx = Math.min(HEADLINES.length - 1, Math.max(0, Math.floor(v * HEADLINES.length)));
-    if (phraseIdx !== lastPhraseRef.current) {
-      lastPhraseRef.current = phraseIdx;
-      setPhraseIndex(phraseIdx);
-    }
-  });
-
   return (
-    <section
-      ref={sectionRef}
-      className="relative flex h-[100svh] min-h-[560px] flex-col overflow-hidden bg-ink text-paper"
-    >
+    <section className="relative flex h-[100svh] min-h-[560px] flex-col overflow-hidden bg-ink text-paper">
       <div className="absolute inset-0 bg-gradient-to-br from-pink-deep via-ink to-ink" aria-hidden="true" />
       <HeroLayers />
-      <HeroContent phraseIndex={reduced ? 0 : phraseIndex} canvasRef={canvasRef} />
+      <HeroContent canvasRef={canvasRef} />
     </section>
   );
 }
@@ -129,10 +106,8 @@ function HeroLayers() {
 }
 
 function HeroContent({
-  phraseIndex,
   canvasRef,
 }: {
-  phraseIndex: number;
   canvasRef: React.RefObject<HTMLCanvasElement | null>;
 }) {
   return (
@@ -155,7 +130,7 @@ function HeroContent({
           >
             <RotatingHeadline
               phrases={HEADLINES}
-              index={phraseIndex}
+              interval={3100}
               className="display max-w-3xl text-4xl sm:text-6xl lg:text-7xl"
             />
 
