@@ -65,7 +65,11 @@ function CountUp({ value, color }: { value: string; color: keyof typeof colorMap
   }, [value]);
 
   return (
-    <span ref={ref} className={`block text-5xl font-extrabold tabular-nums sm:text-6xl ${colorMap[color]}`}>
+    <span
+      ref={ref}
+      dir="ltr"
+      className={`block text-5xl font-extrabold tabular-nums sm:text-6xl ${colorMap[color]}`}
+    >
       {display}
     </span>
   );
