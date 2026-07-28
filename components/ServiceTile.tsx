@@ -1,6 +1,5 @@
 "use client";
 
-import Link from "next/link";
 import { useRef, useState } from "react";
 import { DepthReveal } from "./DepthReveal";
 import { useReducedMotion } from "@/lib/useReducedMotion";
@@ -66,18 +65,9 @@ export function ServiceTile({ service, className = "" }: { service: Service; cla
           preload="auto"
         />
 
-        {/* Top overlay — title + link to the service page, always visible */}
+        {/* Top overlay — title, always visible */}
         <div className="pointer-events-none absolute inset-x-0 top-0 bg-gradient-to-b from-black/75 via-black/20 to-transparent p-4">
           <h3 className="text-base font-extrabold text-paper sm:text-lg">{service.title}</h3>
-          <Link
-            href={`/services/${service.slug}`}
-            className="pointer-events-auto mt-2 inline-flex items-center gap-1.5 rounded-full bg-paper/90 px-3 py-1 text-xs font-bold text-ink transition-colors hover:bg-pink hover:text-paper"
-          >
-            לשירות
-            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" aria-hidden="true" className="rotate-180">
-              <path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" />
-            </svg>
-          </Link>
         </div>
 
         {/* Hover reveal — full detail, video paused underneath */}
