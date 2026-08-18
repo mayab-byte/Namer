@@ -95,7 +95,7 @@ export function Footer() {
           <p>
             © {year} {site.name}. כל הזכויות שמורות.
           </p>
-          <p>נבנה עם דגש על נגישות, מהירות ו-GSO.</p>
+          <p>נבנה עם דגש על נגישות ומהירות.</p>
         </div>
       </div>
     </footer>

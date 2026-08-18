@@ -6,7 +6,6 @@ import { StorySection } from "@/components/StorySection";
 import { DepthReveal } from "@/components/DepthReveal";
 import { ServicesShowcase } from "@/components/ServicesShowcase";
 import { WorksCarousel } from "@/components/WorksCarousel";
-import { Stats } from "@/components/Stats";
 import { Faq } from "@/components/Faq";
 import { CtaBand } from "@/components/CtaBand";
 import { JsonLd } from "@/components/JsonLd";
@@ -65,40 +64,6 @@ export default function HomePage() {
             </div>
           ))}
         </DepthReveal>
-      </Section>
-
-      {/* ----------------------------------------------------- GSO / Why */}
-      <Section>
-        <div className="grid items-center gap-12 lg:grid-cols-2">
-          <DepthReveal>
-            <SectionHeading
-              kicker="GSO · הדור הבא של הנוכחות"
-              title="נמצאים בתשובות של ה-AI, לא רק בגוגל."
-              intro="אנחנו בונים את הנוכחות שלכם כך שמנועי בינה מלאכותית - ChatGPT, Claude, Gemini ו-Perplexity - יכולים לקרוא אתכם, להבין אתכם ולצטט אתכם בתשובות שהם מייצרים."
-            />
-            <ul className="mt-8 space-y-4">
-              {[
-                { t: "כתיבה לפרומפטים אמיתיים", d: "התוכן נבנה סביב שאלות שאנשים באמת שואלים." },
-                { t: "מבנה אטומי + Schema מלא", d: "בלוקים שמודלים יכולים לשלוף ולצטט מחוץ להקשר." },
-                { t: "תשובה ישירה בכל עמוד", d: "בלי אינטרו - התשובה נמצאת ב-100 המילים הראשונות." },
-              ].map((item) => (
-                <li key={item.t} className="flex gap-4">
-                  <span className="mt-2 h-2.5 w-2.5 shrink-0 rounded-full bg-pink" aria-hidden="true" />
-                  <div>
-                    <p className="font-bold">{item.t}</p>
-                    <p className="text-sm text-gray-500">{item.d}</p>
-                  </div>
-                </li>
-              ))}
-            </ul>
-          </DepthReveal>
-          <DepthReveal delay={0.15} className="rounded-brand bg-gray-50 p-8 sm:p-12">
-            <p className="kicker font-serif">By the numbers</p>
-            <div className="mt-8">
-              <Stats />
-            </div>
-          </DepthReveal>
-        </div>
       </Section>
 
       {/* --------------------------------------------------- Newsletter */}
