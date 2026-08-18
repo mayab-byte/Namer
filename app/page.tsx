@@ -8,6 +8,7 @@ import { ServicesShowcase } from "@/components/ServicesShowcase";
 import { WorksCarousel } from "@/components/WorksCarousel";
 import { Faq } from "@/components/Faq";
 import { CtaBand } from "@/components/CtaBand";
+import { Stats } from "@/components/Stats";
 import { JsonLd } from "@/components/JsonLd";
 import { services, works, homeFaqs, methodology, marqueeTop, marqueeBottom } from "@/lib/content";
 import { faqSchema } from "@/lib/schema";
@@ -66,15 +67,22 @@ export default function HomePage() {
         </DepthReveal>
       </Section>
 
+      {/* ---------------------------------------------------------- Stats */}
+      <Section className="bg-gray-50">
+        <DepthReveal>
+          <Stats cols={4} />
+        </DepthReveal>
+      </Section>
+
       {/* --------------------------------------------------- Newsletter */}
       <section className="bg-lime">
         <div className="container-x grid items-center gap-8 py-16 md:grid-cols-2">
           <div>
             <p className="kicker font-serif text-ink/70">Newsletter</p>
-            <h2 className="display mt-3 text-4xl sm:text-5xl">המקום שבו אנחנו כותבים קצת אחרת.</h2>
+            <h2 className="display mt-3 text-4xl sm:text-5xl">תוכן שווה, ישר לתיבה שלכם.</h2>
             <p className="mt-5 max-w-md text-lg leading-relaxed text-ink/80">
-              במייל יש לנו יותר מקום לחשוב בקול, לשתף ברעיונות, בדילמות ובתהליכים
-              שאנחנו פוגשים בעבודה עם עסקים. אם זה מעניין אתכם, כנראה שתיהנו גם מהמיילים שלנו.
+              הצטרפו לניוזלטר של נמר סושיאל וקבלו אחת לכמה שבועות תובנות, טרנדים
+              וטיפים בגובה העיניים - בלי הרצאות, רק דברים שבאמת עוזרים לעסק שלכם לצמוח.
             </p>
           </div>
           <form

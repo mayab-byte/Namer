@@ -56,11 +56,11 @@ export function StorySection() {
             אנחנו שותפים לדרך.
           </h2>
           <p className="mt-6 max-w-md text-lg leading-relaxed text-gray-300">
-            אנחנו מתחילים מלהקשיב לכם - לומדים את העסק לעומק, מזהים את הקול שכבר קיים אצלכם,
+            אנחנו מתחילים מלהקשיב לכם, לומדים את העסק לעומק, מזהים את הקול שכבר קיים אצלכם
             ומוציאים אותו החוצה בשפה שאי אפשר להתעלם ממנה.
           </p>
           <Link href="/about" className="btn-ghost mt-8 border-white/25 text-paper hover:border-white/60">
-            לקרוא עוד עלינו
+            בואו נכיר
           </Link>
         </div>
 
